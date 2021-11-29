@@ -1,17 +1,19 @@
 package Controller;
 
+import business.ToyBusiness;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import toyproduct.Toy;
-import toyproduct.models.CarToy;
-import toyproduct.models.HelicopterToy;
-import toys.SerialNumberGenerator;
-import toys.ToyBusiness;
+import toyproduct.models.AmericanCarToy;
+import toyproduct.models.AmericanHelicopterToy;
+import business.SerialNumberGenerator;
+import business.branches.AmericanToyBusiness;
+import business.branches.AsianToyBusiness;
 
 public class Kata6 {
     public static void main(String[] args) {
-        ToyBusiness business = new ToyBusiness();
+        ToyBusiness business = new AsianToyBusiness();
         ArrayList <Toy> toys = new ArrayList<>();
         
         Scanner in = new Scanner(System.in);
