@@ -7,13 +7,14 @@ import java.util.stream.Collectors;
 import toyproduct.Toy;
 import toyproduct.models.AmericanCarToy;
 import toyproduct.models.AmericanHelicopterToy;
-import business.SerialNumberGenerator;
-import business.branches.AmericanToyBusiness;
-import business.branches.AsianToyBusiness;
+import factories.SerialNumberGenerator;
+import factories.regionalfactories.AmericanToyFactory;
+import factories.regionalfactories.AsianToyFactory;
 
 public class Kata6 {
     public static void main(String[] args) {
-        ToyBusiness business = new AsianToyBusiness();
+        //ToyBusiness business = new ToyBusiness(new AmericanToyFactory());
+        ToyBusiness business = new ToyBusiness(new AsianToyFactory());
         ArrayList <Toy> toys = new ArrayList<>();
         
         Scanner in = new Scanner(System.in);
@@ -24,7 +25,7 @@ public class Kata6 {
             switch(line) {
                 case "car": 
                 case "helicopter": 
-                    toys.add(business.createToy(line));
+                    toys.add(business.produceToy(line));
                     System.out.println("Built helicopters: " + toys.stream()
                                         .map(c -> c.toString())
                                         .collect(Collectors.joining(", ")));
