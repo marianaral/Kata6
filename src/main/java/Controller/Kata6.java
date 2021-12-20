@@ -8,13 +8,20 @@ import toyproduct.Toy;
 import toyproduct.models.AmericanCarToy;
 import toyproduct.models.AmericanHelicopterToy;
 import factories.SerialNumberGenerator;
-import factories.regionalfactories.AmericanToyFactory;
-import factories.regionalfactories.AsianToyFactory;
+import factories.regionalfactories.AmericanCarToyFactory;
+import factories.regionalfactories.AmericanHelicopterToyFactory;
+import factories.regionalfactories.AmericanSubmarineToyFactory;
+import factories.regionalfactories.AsianCarToyFactory;
+import factories.regionalfactories.AsianHelicopterToyFactory;
+
 
 public class Kata6 {
     public static void main(String[] args) {
-        //ToyBusiness business = new ToyBusiness(new AmericanToyFactory());
-        ToyBusiness business = new ToyBusiness(new AsianToyFactory());
+        ToyBusiness business = new ToyBusiness();
+        business.add("car", new AmericanCarToyFactory());
+        business.add("helicopter", new AsianHelicopterToyFactory());
+        business.add("submarine", new AmericanSubmarineToyFactory());
+
         ArrayList <Toy> toys = new ArrayList<>();
         
         Scanner in = new Scanner(System.in);
@@ -24,9 +31,10 @@ public class Kata6 {
             
             switch(line) {
                 case "car": 
+                case "submarine":
                 case "helicopter": 
                     toys.add(business.produceToy(line));
-                    System.out.println("Built helicopters: " + toys.stream()
+                    System.out.println("Built : " + toys.stream()
                                         .map(c -> c.toString())
                                         .collect(Collectors.joining(", ")));
                     break;
