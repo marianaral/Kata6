@@ -1,14 +1,18 @@
 package toyproduct.models;
 
+import componentfactories.regionalcomponentfactories.AmericanComponentFactory;
 import toyproduct.Toy;
 
 
 public class AsianHelicopterToy implements Toy{
     final private Integer serialNumber;
     final private String type = "helicopter";
+    private final AmericanComponentFactory factory;
     
     public AsianHelicopterToy(Integer serialNumber) {
         this.serialNumber = serialNumber;
+        this.factory = new AmericanComponentFactory();
+
     }    
     
     @Override
@@ -34,6 +38,11 @@ public class AsianHelicopterToy implements Toy{
     @Override
     public String toString() {
         return "AsianHelicopterToy{" + "serialNumber=" + serialNumber + '}';
+    }
+
+    @Override
+    public void prepare() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
