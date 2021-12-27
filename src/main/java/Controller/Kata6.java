@@ -10,7 +10,6 @@ import toyproduct.models.AmericanHelicopterToy;
 import factories.SerialNumberGenerator;
 import factories.regionalfactories.AsianToyFactory;
 
-
 public class Kata6 {
     public static void main(String[] args) {
         ToyBusiness business = new ToyBusiness(new AsianToyFactory());
