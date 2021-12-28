@@ -10,7 +10,6 @@ import toyproduct.models.AmericanHelicopterToy;
 import factories.SerialNumberGenerator;
 import factories.regionalfactories.AmericanCarToyFactory;
 import factories.regionalfactories.AmericanHelicopterToyFactory;
-import factories.regionalfactories.AmericanSubmarineToyFactory;
 import factories.regionalfactories.AsianCarToyFactory;
 import factories.regionalfactories.AsianHelicopterToyFactory;
 
@@ -20,7 +19,6 @@ public class Kata6 {
         ToyBusiness business = new ToyBusiness();
         business.add("car", new AmericanCarToyFactory());
         business.add("helicopter", new AsianHelicopterToyFactory());
-        business.add("submarine", new AmericanSubmarineToyFactory());
 
         ArrayList <Toy> toys = new ArrayList<>();
         
